@@ -16,13 +16,26 @@
   <view class="flex-item room_text">平民：</view>
   <view class="stepper room_text">
     <!-- 减号 -->
-    <text class="{{minusStatusTownsfolk}}" bindtap="bindMinusTownsfolk">-</text>
+    <text class="{{minusStatus}}" data-role="townsfolk" bindtap="bindMinus">-</text>
     <!-- 数值 -->
-    <input type="number" bindchange="bindManual" value="{{townsfolk}}" />
+    <input type="number" bindchange="bindManual" value="{{role_nums.townsfolk}}" />
     <!-- 加号 -->
-    <text class="normal" bindtap="bindPlusTownsfolk">+</text>
+    <text class="normal" data-role="townsfolk" bindtap="bindPlus">+</text>
   </view>
 </view>
+<view class="flex-wrp" style="flex-direction:row;">
+  <view class="flex-item room_text">狼人：</view>
+  <view class="stepper room_text">
+    <!-- 减号 -->
+    <text class="{{minusStatus}}" data-role="werewolf" bindtap="bindMinus">-</text>
+    <!-- 数值 -->
+    <input type="number" bindchange="bindManual" value="{{role_nums.werewolf}}" />
+    <!-- 加号 -->
+    <text class="normal" data-role="werewolf" bindtap="bindPlus">+</text>
+  </view>
+</view>
+
+<!-- 主容器 -->
 <view class="flex-wrp" style="flex-direction:row;">
   <view class="flex-item room_text">狼人：</view>
   <view class="stepper room_text">

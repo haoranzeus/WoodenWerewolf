@@ -6,11 +6,16 @@ Page({
    */
   data: {
     // 各种角色
+    role_nums: {
+      townsfolk: 4,
+      werewolf: 4,
+      seer: 1
+    },
     townsfolk: 3,
     werewolf: 3,
     seer: 1,
     // 使用data数据对象设置样式名
-    minusStatus: 'disabled',
+    minusStatus: 'normal',
     special_villagers: [
       {name: 'seer', value: '预言家'},
       {name: 'witch', value: '女巫'},
@@ -19,6 +24,50 @@ Page({
       {name: 'idiot', value: '白痴'}
     ]
   },
+
+  /* ============= 通用加减号 ============== */
+  /* 点击减号 */
+  bindMinus: function (e) {
+    console.log(e.target.dataset.role);
+    var role = e.target.dataset.role;
+    var role_nums = this.data.role_nums;
+    // 如果大于0时，才可以减
+    if (role_nums[role] > 0) {
+      role_nums[role]--;
+    }
+    // 只有大于0件的时候，才能normal状态，否则disable状态
+    var minusStatus = role_nums[role] <= 0 ? 'disabled' : 'normal';
+    // 将数值与状态写回
+    this.setData({
+      role_nums: role_nums,
+      minusStatus: minusStatus
+    });
+  },
+  /* 点击加号 */
+  bindPlus: function (e) {
+    console.log(e.target.dataset.role);
+    var role = e.target.dataset.role;
+    var role_nums = this.data.role_nums;
+    // 不作过多考虑自增1
+    role_nums[role]++;
+    // 只有大于0件的时候，才能normal状态，否则disable状态
+    var minusStatus = role_nums[role] < 0 ? 'disabled' : 'normal';
+    // 将数值与状态写回
+    this.setData({
+      role_nums: role_nums,
+      minusStatus: minusStatus
+    });
+  },
+  /* 输入框事件 */
+  bindManual: function (e) {
+    var num = e.detail.value;
+    // 将数值与状态写回
+    this.setData({
+      num: num
+    });
+  },
+
+
   /* ============= 平民 ============== */
   /* 点击减号 */
   bindMinusTownsfolk: function () {
@@ -99,6 +148,7 @@ Page({
     console.log(e.detail.value);
     for (var val in e.detail.value) {
       console.log(e.detail.value[val]);
+      console.log(this.data['seer']);
     }
     // 将数值与状态写回
     this.setData({
