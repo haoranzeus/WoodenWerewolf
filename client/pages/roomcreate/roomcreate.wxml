@@ -1,0 +1,47 @@
+<view class="section">
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item room_text">房间号：</view>
+    <view class="flex-item room_text">000001</view>
+  </view>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item room_text">加入码：</view>
+    <view class="flex-item room_text">000001</view>
+  </view>
+</view>
+<view class="section">
+  <view class="section__title">卡牌设置：</view>
+</view>
+<!-- 主容器 -->
+<view class="flex-wrp" style="flex-direction:row;">
+  <view class="flex-item room_text">平民：</view>
+  <view class="stepper room_text">
+    <!-- 减号 -->
+    <text class="{{minusStatusTownsfolk}}" bindtap="bindMinusTownsfolk">-</text>
+    <!-- 数值 -->
+    <input type="number" bindchange="bindManual" value="{{townsfolk}}" />
+    <!-- 加号 -->
+    <text class="normal" bindtap="bindPlusTownsfolk">+</text>
+  </view>
+</view>
+<view class="flex-wrp" style="flex-direction:row;">
+  <view class="flex-item room_text">狼人：</view>
+  <view class="stepper room_text">
+    <!-- 减号 -->
+    <text class="{{minusStatusWerewolf}}" bindtap="bindMinusWerewolf">-</text>
+    <!-- 数值 -->
+    <input type="number" bindchange="bindManual" value="{{werewolf}}" />
+    <!-- 加号 -->
+    <text class="normal" bindtap="bindPlusWerewolf">+</text>
+  </view>
+</view>
+<view class="section">
+  <view class="section__title">神职：</view>
+</view>
+<checkbox-group bindchange="checkboxChange">
+  <label class="checkbox" wx:for="{{special_villagers}}">
+    <checkbox value="{{item.name}}" checked="{{item.value}}"/>{{item.value}}
+  </label>
+</checkbox-group>
+
+<button type="primary" loading="{{loading}}" plain="{{plain}}"
+		disabled="{{disabled}}" bindtap="newGame"> 开启一局 </button>
