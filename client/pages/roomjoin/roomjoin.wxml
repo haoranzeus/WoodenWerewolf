@@ -5,13 +5,23 @@
     <view class="flex-item">
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" maxlength="10" placeholder="最大输入长度为10" />
+          <input class="weui-input" bindinput="bindRoomNum" maxlength="10" 
+          placeholder="请输入房间号" />
         </view>
       </view>
     </view>
   </view>
   <view class="flex-wrp" style="flex-direction:row;">
     <view class="flex-item room_text">加入码：</view>
-    <view class="flex-item">{{join_code}}</view>
+    <view class="flex-item">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" bindinput="bindRoomNum" maxlength="10" 
+          placeholder="请输入加入码" />
+        </view>
+      </view>
+    </view>
   </view>
 </view>
+
+<button type="primary" bindtap="getCard"> 抽身份牌 </button>

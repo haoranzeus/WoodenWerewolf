@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    room_num: 0,
+    join_code: 0
+  },
+
+  bindRoomNum: function (e) {
+    this.setData({
+      room_num: e.detail.value
+    })
   },
 
   /**
