@@ -1,11 +1,11 @@
 <view class="section">
   <view class="flex-wrp" style="flex-direction:row;">
     <view class="flex-item room_text">房间号：</view>
-    <view class="flex-item room_text">000001</view>
+    <view class="flex-item">{{room_num}}</view>
   </view>
   <view class="flex-wrp" style="flex-direction:row;">
     <view class="flex-item room_text">加入码：</view>
-    <view class="flex-item room_text">000001</view>
+    <view class="flex-item">{{join_code}}</view>
   </view>
 </view>
 <view class="section">
@@ -16,7 +16,7 @@
   <view class="flex-item room_text">平民：</view>
   <view class="stepper room_text">
     <!-- 减号 -->
-    <text class="{{minusStatus}}" data-role="townsfolk" bindtap="bindMinus">-</text>
+    <text class="{{minusStatuses.townsfolk}}" data-role="townsfolk" bindtap="bindMinus">-</text>
     <!-- 数值 -->
     <input type="number" bindchange="bindManual" value="{{role_nums.townsfolk}}" />
     <!-- 加号 -->
@@ -27,7 +27,7 @@
   <view class="flex-item room_text">狼人：</view>
   <view class="stepper room_text">
     <!-- 减号 -->
-    <text class="{{minusStatus}}" data-role="werewolf" bindtap="bindMinus">-</text>
+    <text class="{{minusStatuses.werewolf}}" data-role="werewolf" bindtap="bindMinus">-</text>
     <!-- 数值 -->
     <input type="number" bindchange="bindManual" value="{{role_nums.werewolf}}" />
     <!-- 加号 -->
@@ -35,18 +35,6 @@
   </view>
 </view>
 
-<!-- 主容器 -->
-<view class="flex-wrp" style="flex-direction:row;">
-  <view class="flex-item room_text">狼人：</view>
-  <view class="stepper room_text">
-    <!-- 减号 -->
-    <text class="{{minusStatusWerewolf}}" bindtap="bindMinusWerewolf">-</text>
-    <!-- 数值 -->
-    <input type="number" bindchange="bindManual" value="{{werewolf}}" />
-    <!-- 加号 -->
-    <text class="normal" bindtap="bindPlusWerewolf">+</text>
-  </view>
-</view>
 <view class="section">
   <view class="section__title">神职：</view>
 </view>

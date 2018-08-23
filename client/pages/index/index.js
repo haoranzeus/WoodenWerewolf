@@ -48,6 +48,11 @@ Page({
       url: '../roomcreate/roomcreate'
     })
   },
+  toRoomJoin: function (event) {
+    wx.navigateTo({
+      url: '../roomjoin/roomjoin'
+    })
+  },
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

@@ -37,7 +37,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "werewolf"
+					"name": "创建房间页",
+					"pathName": "pages/roomcreate/roomcreate"
 				}
 			]
 		}

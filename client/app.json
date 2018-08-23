@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/roomcreate/roomcreate"
+    "pages/roomcreate/roomcreate",
+    "pages/roomjoin/roomjoin"
   ],
   "window": {
     "backgroundTextStyle": "light",
