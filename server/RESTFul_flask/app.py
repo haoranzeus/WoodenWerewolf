@@ -10,6 +10,7 @@ from flask import request
 from flask_cors import CORS
 from flask_restful import Api, Resource
 
+from bll import bll_utils
 from utils.context import Context
 
 
@@ -28,6 +29,13 @@ class Hello(Resource):
         return {'hello': 'name'}
 
 
+class OnLogin(Resource):
+    def post(self):
+        js_code = request.json['code']
+        open_id = bll_utils.openid_get(context.appid, context.secret, js_code)
+        print(open_id)
+
+
 def app_init(log_conf_dict):
     """
     flask app 初始化
@@ -38,6 +46,7 @@ def app_init(log_conf_dict):
     url_base = context.conf_dict['woodenwerewolf']['url_root']
     routers = [
         (Hello, 'hello/'),
+        (OnLogin, 'onlogin/'),
     ]
 
     # 路由注册

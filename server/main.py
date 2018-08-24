@@ -62,10 +62,18 @@ def main(argv):
     framework = app_conf['woodenwerewolf']['framework']
     _log = logging.getLogger(__name__)
 
+    # 获取环境变量
+    env_dist = os.environ
+    appid = env_dist.get('APPID')
+    secret = env_dist.get('SECRET')
+
     # 等logging配置好了再导入
     from utils.context import Context
     context = Context()
     context.init(app_conf)
+    # 设置微信的环境变量
+    context.appid = appid
+    context.secret = secret
     from mysqldal.sql_engine import sql_init
 
     sql_init()
