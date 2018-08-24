@@ -120,7 +120,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    //test 登录测试
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'http://172.18.1.60:5000/werewolf/onlogin/',
+            data: {
+              code: res.code
+            },
+            method: "POST"
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
+    // end test
   },
 
   /**
