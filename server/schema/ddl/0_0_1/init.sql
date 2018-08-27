@@ -10,7 +10,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `werewolf`.`roles` (
-  `id` INT(32) NOT NULL,
+  `id` INT(32) NOT NULL AUTO_INCREMENT,
   `room_id` INT(11) NOT NULL,
   `role_name` VARCHAR(45) NOT NULL DEFAULT '平民' COMMENT '角色名',
   `enabled` INT(11) NOT NULL DEFAULT 0 COMMENT '是否使用中（0.否；1.是）',

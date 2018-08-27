@@ -30,10 +30,40 @@ class Hello(Resource):
 
 
 class OnLogin(Resource):
+    """
+    参数：code: 小程序获取的code，用于换取openid
+    获取openid
+    """
     def post(self):
         js_code = request.json['code']
-        open_id = bll_utils.openid_get(context.appid, context.secret, js_code)
-        print(open_id)
+        openid = bll_utils.openid_get(context.appid, context.secret, js_code)
+        print(openid)
+        return {'openid': openid}
+
+
+class CreateRoom(Resource):
+    """
+    condition_dict: {
+        "openid": "xxx",
+        "nick_name": "xxx",
+        "roles": {
+            "townsfolk": 4,
+            "werewolf: 4,
+            "seer":1,
+            "witch": 1,
+            "hunter": 1,
+            "guard": 1,
+            "idiot": 1
+        }
+    }
+    """
+    def post(self):
+        return bll_utils.create_room(request.json)
+
+
+class JoinRoom(Resource):
+    def post(self):
+        return bll_utils.join_room(request.json)
 
 
 def app_init(log_conf_dict):
@@ -47,6 +77,8 @@ def app_init(log_conf_dict):
     routers = [
         (Hello, 'hello/'),
         (OnLogin, 'onlogin/'),
+        (CreateRoom, 'createroom/'),
+        (JoinRoom, 'joinroom/'),
     ]
 
     # 路由注册
