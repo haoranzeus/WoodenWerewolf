@@ -15,11 +15,13 @@ Page({
       witch: 1,
       hunter: 1,
       guard: 1,
-      idiot: 1
+      idiot: 1,
+      whitewerewolf: 1,
     },
     townsfolk: 3,
     werewolf: 3,
     seer: 1,
+    openid: '',
     // 使用data数据对象设置样式名
     minusStatuses: {
       townsfolk: 'normal',
@@ -30,14 +32,15 @@ Page({
       {name: 'witch', value: '女巫'},
       {name: 'hunter', value: '猎人'},
       {name: 'guard', value: '守卫'},
-      {name: 'idiot', value: '白痴'}
-    ]
+      {name: 'idiot', value: '白痴'},
+      { name: 'whitewerewolf', value: '白狼王' }
+    ],
+    nickname: ''
   },
 
   /* ============= 通用加减号 ============== */
   /* 点击减号 */
   bindMinus: function (e) {
-    console.log(e.target.dataset.role);
     var role = e.target.dataset.role;
     var role_nums = this.data.role_nums;
     var minusStatuses = this.data.minusStatuses;
@@ -55,7 +58,6 @@ Page({
   },
   /* 点击加号 */
   bindPlus: function (e) {
-    console.log(e.target.dataset.role);
     var role = e.target.dataset.role;
     var role_nums = this.data.role_nums;
     var minusStatuses = this.data.minusStatuses;
@@ -97,11 +99,11 @@ Page({
     this.setData({
       role_nums: role_nums
     });
-    console.log(this.data.role_nums);
   },
 
 
   newGame: function (e) {
+    var that = this;
     var townsfolk = this.data.tonsfolk;
     var werewolf = this.data.werewolf;
     var seer = this.data.seer;
@@ -111,6 +113,22 @@ Page({
       
       success: function() {
         // TODO 此处将数据上传至服务器，并获取加入码
+        wx.request({
+          url: 'http://172.18.1.60:5000/werewolf/createroom/',
+          data: {
+            openid: that.data.openid,
+            nick_name: that.data.nickname,
+            roles: that.data.role_nums
+          },
+          success: function (res) {
+            console.log(res.data);
+            that.setData({
+              room_num: res.data['room_num'],
+              join_code: res.data['join_code']
+            })
+          },
+          method: "POST"
+        })
       }
     })
   },
@@ -120,6 +138,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      nickname: options.nickname
+    })
+    var that = this
     //test 登录测试
     wx.login({
       success: function (res) {
@@ -129,6 +151,12 @@ Page({
             url: 'http://172.18.1.60:5000/werewolf/onlogin/',
             data: {
               code: res.code
+            },
+            success: function (res) {
+              var openid = res.data['openid']
+              that.setData({
+                openid: openid
+              });
             },
             method: "POST"
           })

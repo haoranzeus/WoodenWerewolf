@@ -44,13 +44,16 @@ Page({
     }
   },
   toRoomCreate: function (event) {
+    console.log(this.data.userInfo.nickName);
+    var nickname = this.data.userInfo.nickName;
     wx.navigateTo({
-      url: '../roomcreate/roomcreate'
+      url: '../roomcreate/roomcreate?nickname=' + nickname
     })
   },
   toRoomJoin: function (event) {
+    var nickname = this.data.userInfo.nickName;
     wx.navigateTo({
-      url: '../roomjoin/roomjoin'
+      url: '../roomjoin/roomjoin?nickname=' + nickname
     })
   },
   getUserInfo: function(e) {
