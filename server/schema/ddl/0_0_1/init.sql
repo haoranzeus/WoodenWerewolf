@@ -1,9 +1,22 @@
-CREATE DATABASE werewolf CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- MySQL Workbench Synchronization
+-- Generated: 2018-08-27 21:26
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: zhanghaoran
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+
+CREATE SCHEMA IF NOT EXISTS `werewolf` DEFAULT CHARACTER SET utf8 ;
 
 CREATE TABLE IF NOT EXISTS `werewolf`.`room` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '房间号',
-  `code` VARCHAR(45) NOT NULL DEFAULT '123456' COMMENT '加入码',
-  `owner_openid` VARCHAR(200) NOT NULL COMMENT '房主的openid',
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `code` VARCHAR(45) NOT NULL DEFAULT '123456',
+  `owner_openid` VARCHAR(200) NOT NULL ,
+  `owner_nickname` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `owner_openid_UNIQUE` (`owner_openid` ASC))
 ENGINE = InnoDB
@@ -12,9 +25,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `werewolf`.`roles` (
   `id` INT(32) NOT NULL AUTO_INCREMENT,
   `room_id` INT(11) NOT NULL,
-  `role_name` VARCHAR(45) NOT NULL DEFAULT '平民' COMMENT '角色名',
-  `enabled` INT(11) NOT NULL DEFAULT 0 COMMENT '是否使用中（0.否；1.是）',
-  `player_openid` VARCHAR(200) NULL DEFAULT NULL COMMENT '玩家的openid',
+  `role_name` VARCHAR(45) NOT NULL DEFAULT '平民',
+  `enabled` INT(11) NOT NULL DEFAULT 0 ,
+  `player_openid` VARCHAR(200) NULL DEFAULT NULL  ,
+  `player_nickname` VARCHAR(200) NULL DEFAULT NULL  ,
   PRIMARY KEY (`id`),
   INDEX `fk_roles_room_idx` (`room_id` ASC),
   CONSTRAINT `fk_roles_room`
@@ -24,3 +38,8 @@ CREATE TABLE IF NOT EXISTS `werewolf`.`roles` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
