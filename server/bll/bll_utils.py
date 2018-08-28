@@ -63,6 +63,7 @@ def create_room(condition_dict):
         room_get = q_res.one_or_none()
         if room_get is not None:
             room_get.code = '{:0>6d}'.format(random.randint(0, 999999))
+            room_get.owner_nickname = nickname
             return_val = {'room_num': room_get.id, 'join_code': room_get.code}
             for role_get in room_get.roles:
                 role_get.enabled = 0
