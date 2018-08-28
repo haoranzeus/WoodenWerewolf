@@ -29,24 +29,27 @@ Page({
       title: '确定加入房间：' + that.data.room_num,
       content: '加入房间将获得角色卡牌',
 
-      success: function () {
+      success: function (res) {
         // TODO 此处将数据上传至服务器，并获取加入码
-        wx.request({
-          url: 'http://172.18.1.60:5000/werewolf/joinroom/',
-          data: {
-            openid: that.data.openid,
-            nick_name: that.data.nickname,
-            room_num: that.data.room_num,
-            join_code: that.data.join_code
-          },
-          success: function (res) {
-            console.log(res.data);
-            that.setData({
-              role: res.data['role']
-            })
-          },
-          method: "POST"
-        })
+        if (res.confirm) {
+          wx.request({
+            //url: 'http://172.18.1.60:5000/werewolf/joinroom/',
+            url: 'https://werewolf.zhanghaoran.cc/werewolf/joinroom/',
+            data: {
+              openid: that.data.openid,
+              nick_name: that.data.nickname,
+              room_num: that.data.room_num,
+              join_code: that.data.join_code
+            },
+            success: function (res) {
+              console.log(res.data);
+              that.setData({
+                role: res.data['role']
+              })
+            },
+            method: "POST"
+          })
+        }
       }
     })
   },
@@ -65,7 +68,8 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://172.18.1.60:5000/werewolf/onlogin/',
+            //url: 'http://172.18.1.60:5000/werewolf/onlogin/',
+            url: 'https://werewolf.zhanghaoran.cc/werewolf/onlogin/',
             data: {
               code: res.code
             },

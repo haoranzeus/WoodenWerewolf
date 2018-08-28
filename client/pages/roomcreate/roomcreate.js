@@ -107,28 +107,31 @@ Page({
     var townsfolk = this.data.tonsfolk;
     var werewolf = this.data.werewolf;
     var seer = this.data.seer;
-    wx.showModal({
+    wx.showModal ({
       title: '确定开启新的一局？',
       content: '将生成新的加入码，请小伙伴们凭加入码抽取新卡牌',
       
-      success: function() {
+      success: function(res) {
         // TODO 此处将数据上传至服务器，并获取加入码
-        wx.request({
-          url: 'http://172.18.1.60:5000/werewolf/createroom/',
-          data: {
-            openid: that.data.openid,
-            nick_name: that.data.nickname,
-            roles: that.data.role_nums
-          },
-          success: function (res) {
-            console.log(res.data);
-            that.setData({
-              room_num: res.data['room_num'],
-              join_code: res.data['join_code']
-            })
-          },
-          method: "POST"
-        })
+        if (res.confirm) {
+          wx.request({
+            //url: 'http://172.18.1.60:5000/werewolf/createroom/',
+            url: 'https://werewolf.zhanghaoran.cc/werewolf/createroom/',
+            data: {
+              openid: that.data.openid,
+              nick_name: that.data.nickname,
+              roles: that.data.role_nums
+            },
+            success: function (res) {
+              console.log(res.data);
+              that.setData({
+                room_num: res.data['room_num'],
+                join_code: res.data['join_code']
+              })
+            },
+            method: "POST"
+          })
+        }
       }
     })
   },
@@ -148,7 +151,8 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://172.18.1.60:5000/werewolf/onlogin/',
+            //url: 'http://172.18.1.60:5000/werewolf/onlogin/',
+            url: 'https://werewolf.zhanghaoran.cc/werewolf/onlogin/',
             data: {
               code: res.code
             },
