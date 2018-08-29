@@ -1,4 +1,26 @@
 /**index.wxss**/
+.wolf-img {
+  width: 82px;
+  height:82px;
+  
+}
+.title {
+  font-family:PingFang-SC-Bold;
+  font-size:14px;
+  color:#4a4a4a;
+}
+.btn-link {
+  font-size:14px;
+  background-color:#ffffff;
+}
+.btn-link-blue {
+  color:#4a90e2;
+}
+.btn-link-yellow {
+  color:#f5a623;
+}
+button::after{ border: none; }
+
 .userinfo {
   display: flex;
   flex-direction: column;

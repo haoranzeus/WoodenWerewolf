@@ -4,6 +4,9 @@ const app = getApp()
 
 Page({
   data: {
+    dispcreateroom:'<<创建房间>>',
+    dispjoinroom: '<<加入房间>>',
+
     motto: '欢迎来到午休狼人杀',
     userInfo: {},
     hasUserInfo: false,

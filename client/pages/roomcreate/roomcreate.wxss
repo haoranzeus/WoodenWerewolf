@@ -1,4 +1,7 @@
 /* pages/roomcreate/roomcreate.wxss */
+.title-role {
+  font-size:14px;
+}
 
 .page-section{
   margin-bottom: 20rpx;

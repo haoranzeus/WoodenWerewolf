@@ -1,3 +1,39 @@
+<view style="height: 65px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+    <view><text class='title-role'>{{title_role_werewolf}}</text></view>
+</view>
+<view class="flex-wrp-center" style="flex-direction">
+  <view class="stepper room_text">
+    <!-- 减号 -->
+    <text class="{{minusStatuses.werewolf}}" data-role="werewolf" bindtap="bindMinus">-</text>
+    <!-- 数值 -->
+    <input type="number" bindchange="bindManual" value="{{role_nums.werewolf}}" />
+    <!-- 加号 -->
+    <text class="normal" data-role="werewolf" bindtap="bindPlus">+</text>
+  </view>
+</view>
+<view style="height: 52px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+    <view><text class='title-role'>{{title_role_townsfolk}}</text></view>
+</view>
+<view class="flex-wrp-center" style="flex-direction">
+  <view class="stepper room_text">
+    <!-- 减号 -->
+    <text class="{{minusStatuses.townsfolk}}" data-role="townsfolk" bindtap="bindMinus">-</text>
+    <!-- 数值 -->
+    <input type="number" bindchange="bindManual" value="{{role_nums.townsfolk}}" />
+    <!-- 加号 -->
+    <text class="normal" data-role="townsfolk" bindtap="bindPlus">+</text>
+  </view>
+</view>
+<view style="height: 57px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+    <view><text class='title-role'>{{title_role_gold}}</text></view>
+</view>
+<view style="height: 17px"></view>
+
+
+
 <view class="section">
   <view class="flex-wrp" style="flex-direction:row;">
     <view class="flex-item room_text">房间号：</view>

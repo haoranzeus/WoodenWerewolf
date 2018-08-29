@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    title_role_werewolf: '<狼人>',
+    title_role_townsfolk: '<平民>',
+    title_role_gold: '<神>',
+
     room_num: '点击“开启一局”获取',
     join_code: '点击“开启一局”获取',
     // 各种角色

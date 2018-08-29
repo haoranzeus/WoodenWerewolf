@@ -1,15 +1,20 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开始使用午休狼人杀 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开始使用午休狼人杀 </button>
+<view wx:if="{{hasUserInfo}}">
+  <view style="height: 84px"></view>
+  <view class="flex-wrp-center" style="flex-direction">
+    <view><image class="wolf-img" src="../../images/wolf.png"></image></view>
   </view>
-  <view wx:if="{{hasUserInfo}}" class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-    <button bindtap="toRoomCreate">我要创建房间</button>
-    <button bindtap="toRoomJoin">我要加入房间</button>
+  <view style="height: 16px"></view>
+  <view class="flex-wrp-center" style="flex-direction">
+    <view><text class="title">午休狼人杀</text></view>
+  </view>
+  <view style="height: 169px"></view>
+  <view class="flex-wrp-center" style="flex-direction">
+    <view><button bindtap="toRoomCreate" class='btn-link btn-link-blue'>{{dispcreateroom}}</button></view>
+  </view>
+  <view style="height: 35px"></view>
+  <view class="flex-wrp-center" style="flex-direction">
+    <view><button bindtap="toRoomJoin" class='btn-link btn-link-yellow'>{{dispjoinroom}}</button></view>
   </view>
 </view>

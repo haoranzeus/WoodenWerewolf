@@ -8,3 +8,8 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.flex-wrp-center {
+  display: flex;
+  justify-content: center;
+}
