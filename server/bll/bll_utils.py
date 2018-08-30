@@ -62,7 +62,7 @@ def create_room(condition_dict):
         q_res = session.query(Room).filter(Room.owner_openid == openid)
         room_get = q_res.one_or_none()
         if room_get is not None:
-            room_get.code = '{:0>6d}'.format(random.randint(0, 9999))
+            room_get.code = '{:0>4d}'.format(random.randint(0, 9999))
             room_get.owner_nickname = nickname
             return_val = {'room_num': room_get.id, 'join_code': room_get.code}
             for role_get in room_get.roles:
@@ -76,7 +76,7 @@ def create_room(condition_dict):
     else:
         # 首次创建
         room_dict = {
-            'code': '{:0>6d}'.format(random.randint(0, 9999)),
+            'code': '{:0>4d}'.format(random.randint(0, 9999)),
             'owner_openid': openid,
             'owner_nickname': nickname
         }
