@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    text_room_num: "<< 请输入房间号 >>",
+    text_join_num: "<< 请输入加入码 >>",
     room_num: 0,
     join_code: '0',
     openid: '',
@@ -43,6 +45,9 @@ Page({
             },
             success: function (res) {
               console.log(res.data);
+              wx.navigateTo({
+                url: '../cardget/cardget?role=' + res.data['role']
+              })
               that.setData({
                 role: res.data['role']
               })

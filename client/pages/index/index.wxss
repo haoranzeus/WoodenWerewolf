@@ -19,7 +19,11 @@
 .btn-link-yellow {
   color:#f5a623;
 }
+
 button::after{ border: none; }
+
+
+/**===分界线===**/
 
 .userinfo {
   display: flex;

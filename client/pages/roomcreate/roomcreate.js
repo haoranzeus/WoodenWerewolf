@@ -5,9 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title_role_werewolf: '<狼人>',
-    title_role_townsfolk: '<平民>',
-    title_role_gold: '<神>',
+    title_role_werewolf: '< 狼人 >',
+    title_role_townsfolk: '< 平民 >',
+    title_role_gold: '< 神 >',
 
     room_num: '点击“开启一局”获取',
     join_code: '点击“开启一局”获取',
@@ -21,6 +21,14 @@ Page({
       guard: 1,
       idiot: 1,
       whitewerewolf: 1,
+    },
+    role_btn: {
+      seer: 'btn-on',
+      witch: 'btn-on',
+      hunter: 'btn-on',
+      guard: 'btn-on',
+      idiot: 'btn-on',
+      whitewerewolf: 'btn-on',
     },
     townsfolk: 3,
     werewolf: 3,
@@ -84,27 +92,23 @@ Page({
     });
   },
 
-  checkboxChange: function (e) {
-    var role_selected = e.detail.value;       // 被选中的神职角色
+  clickGold: function(e){
+    console.log(e.target.dataset.role);
+    var role = e.target.dataset.role;
     var role_nums = this.data.role_nums;
-    
-    var role_normal = ['townsfolk', 'werewolf'];  // 非神职列表
-    Object.keys(role_nums).forEach(function(key){
-      if (role_normal.includes(key)) {
-        return;
-      }
-      if (role_selected.includes(key)) {
-        role_nums[key] = 1;
-      } else {
-        role_nums[key] = 0;
-      }
-    })
-    // 将数值与状态写回
+    var role_btn = this.data.role_btn;
+    if (role_nums[role] == 0) {
+      role_nums[role] = 1;
+      role_btn[role] = 'btn-on';
+    } else {
+      role_nums[role] = 0;
+      role_btn[role] = 'btn-off';
+    }
     this.setData({
-      role_nums: role_nums
+      role_nums: role_nums,
+      role_btn: role_btn
     });
   },
-
 
   newGame: function (e) {
     var that = this;
@@ -128,6 +132,9 @@ Page({
             },
             success: function (res) {
               console.log(res.data);
+              wx.navigateTo({
+                url: '../room/room?room_num=' + res.data['room_num'] + '&join_code=' + res.data['join_code']
+              })
               that.setData({
                 room_num: res.data['room_num'],
                 join_code: res.data['join_code']

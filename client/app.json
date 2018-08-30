@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/roomcreate/roomcreate",
-    "pages/roomjoin/roomjoin"
+    "pages/roomjoin/roomjoin",
+    "pages/room/room",
+    "pages/cardget/cardget"
   ],
   "window": {
     "backgroundTextStyle": "light",

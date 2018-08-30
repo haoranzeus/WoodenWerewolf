@@ -1,0 +1,21 @@
+/* pages/room/room.wxss */
+.wolf-img {
+  width: 82px;
+  height:82px; 
+}
+
+.sub-title {
+  font-family:PingFang-SC-Bold;
+  font-size:14px;
+  color:#4a90e2;
+  letter-spacing:1px;
+  text-align:left;
+}
+
+.text-num {
+  font-family:PingFang-SC-Bold;
+  font-size:24px;
+  color:#4a4a4a;
+  letter-spacing:1.71px;
+  text-align:left;
+}

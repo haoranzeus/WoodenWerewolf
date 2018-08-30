@@ -1,26 +1,19 @@
 <!--pages/roomjoin/roomjoin.wxml-->
-<view class="section">
-  <view class="flex-wrp" style="flex-direction:row;">
-    <view class="flex-item room_text">房间号：</view>
-    <view class="flex-item">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <input class="weui-input" bindinput="bindKeyInputRoomNum" maxlength="6" placeholder="最大输入长度为6" />
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="flex-wrp" style="flex-direction:row;">
-    <view class="flex-item room_text">加入码：</view>
-    <view class="flex-item">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <input class="weui-input" bindinput="bindKeyInputJoinCode" maxlength="6" placeholder="最大输入长度为6" />
-        </view>
-      </view>
-    </view>
-  </view>
+<view style="height: 98px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+    <view><text class='title'>{{text_room_num}}</text></view>
 </view>
-<button type="primary" loading="{{loading}}" plain="{{plain}}"
-		disabled="{{disabled}}" bindtap="joinRoom"> 加入房间 </button>
-<view class="flex-item room_text">你的角色是：{{role}}</view>
+<view style="height: 10px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+    <view><input class='green-input' maxlength="6" bindinput="bindKeyInputRoomNum"></input></view>
+</view>
+<view style="height: 41px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+    <view><text class='title'>{{text_join_num}}</text></view>
+</view>
+<view style="height: 10px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+    <view><input class='green-input' maxlength="6" bindinput="bindKeyInputJoinCode"></input></view>
+</view>
+<view style="height: 179px"></view>
+<button class="btn-complete" bindtap="joinRoom"> 加入 </button>

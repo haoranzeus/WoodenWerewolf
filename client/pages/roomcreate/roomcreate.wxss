@@ -8,6 +8,67 @@
 }
 .flex-wrp {display: flex;}
 .room_text {width:100px; height: 20px;}
+.box-plus-minux{
+  height: 29px;
+}
+.box-plus-minux input {
+  width:48px;
+	height: 27px;
+  margin-left: 5px;
+  margin-right: 5px;
+	text-align: center;
+	font-size: 14px;
+	border:1px solid #e3e3e3;
+  color: #4a4a4a
+}
+
+.box-plus-minux text {
+  width:30px;
+  height:27px;
+	text-align: center;
+	float: left;
+  border:1px solid #e3e3e3;
+  color: #0076ff;
+}
+
+.box-plus-minux .disabled {
+  color: #ccc;
+}
+
+.role-btn {
+  margin-left: 5px;
+  margin-right: 5px;
+  background:#ffffff;
+  border-radius:4px;
+  width:68px;
+  height:27px;
+  padding: 0px;
+  font-size: 14px;
+  line-height: 27px;
+}
+
+.btn-on {  
+  border:1px solid #4a90e2;
+  color:#4a90e2;
+}
+.btn-off {
+  border:1px solid #e3e3e3;
+  color:#e3e3e3;
+}
+.btn-complete {
+  background:#ffffff;
+  border:1px solid #4a90e2;
+  border-radius:65px;
+  width:228px;
+  height:45px;
+  font-size: 14px;
+  line-height: 45px;
+  color: #4a90e2;
+}
+
+
+
+/*分界线=========================*/
 
 /*全局样式*/
 page {

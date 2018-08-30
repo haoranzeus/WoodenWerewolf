@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -44,7 +44,19 @@
 				{
 					"id": -1,
 					"name": "加入房间页面",
-					"pathName": "pages/roomjoin/roomjoin"
+					"pathName": "pages/roomjoin/roomjoin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "room",
+					"pathName": "pages/room/room",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "卡牌页",
+					"pathName": "pages/cardget/cardget"
 				}
 			]
 		}

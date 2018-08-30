@@ -1,0 +1,22 @@
+<!--pages/room/room.wxml-->
+
+<view style="height: 84px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+  <view><image class="wolf-img" src="../../images/wolf.png"></image></view>
+</view>
+<view style="height: 72px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+  <view><text class="sub-title">{{text_room_num}}</text></view>
+</view>
+<view style="height: 14px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+  <view><text class="text-num">{{room_num}}</text></view>
+</view>
+<view style="height: 45px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+  <view><text class="sub-title">{{text_join_code}}</text></view>
+</view>
+<view style="height: 14px"></view>
+<view class="flex-wrp-center" style="flex-direction">
+  <view><text class="text-num">{{join_code}}</text></view>
+</view>
