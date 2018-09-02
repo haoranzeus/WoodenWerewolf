@@ -5,7 +5,7 @@
 </view>
 <view style="height: 10px"></view>
 <view class="flex-wrp-center" style="flex-direction">
-    <view><input class='green-input' maxlength="6" bindinput="bindKeyInputRoomNum"></input></view>
+    <view><input class='green-input' maxlength="6" value='{{room_num}}' bindinput="bindKeyInputRoomNum"></input></view>
 </view>
 <view style="height: 41px"></view>
 <view class="flex-wrp-center" style="flex-direction">

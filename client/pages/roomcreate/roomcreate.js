@@ -1,4 +1,7 @@
 // pages/roomcreate/roomcreate.js
+//获取应用实例
+const app = getApp()
+
 Page({
 
   /**
@@ -121,13 +124,15 @@ Page({
       
       success: function(res) {
         // TODO 此处将数据上传至服务器，并获取加入码
+        console.log(app.globalData.userInfo.nickName);
         if (res.confirm) {
           wx.request({
             //url: 'http://172.18.1.60:5000/werewolf/createroom/',
-            url: 'https://werewolf.zhanghaoran.cc/werewolf/createroom/',
+            //url: 'https://werewolf.zhanghaoran.cc/werewolf/createroom/',
+            url: app.globalData.urls.restful + '/werewolf/createroom/',
             data: {
               openid: that.data.openid,
-              nick_name: that.data.nickname,
+              nick_name: app.globalData.userInfo.nickName,
               roles: that.data.role_nums
             },
             success: function (res) {
@@ -153,7 +158,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      nickname: options.nickname
+      //nickname: options.nickname
     })
     var that = this
     //test 登录测试
@@ -163,7 +168,8 @@ Page({
           //发起网络请求
           wx.request({
             //url: 'http://172.18.1.60:5000/werewolf/onlogin/',
-            url: 'https://werewolf.zhanghaoran.cc/werewolf/onlogin/',
+            //url: 'https://werewolf.zhanghaoran.cc/werewolf/onlogin/',
+            url: app.globalData.urls.restful + '/werewolf/onlogin/',
             data: {
               code: res.code
             },
@@ -187,7 +193,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**

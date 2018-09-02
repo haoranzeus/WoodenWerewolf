@@ -7,8 +7,8 @@ Page({
   data: {
     text_room_num: "<< 房间号 >>",
     text_join_code: "<< 加入码 >>",
-    room_num: '',
-    join_code: '',
+    room_num: '0',
+    join_code: '0',
   },
 
   /**
@@ -67,6 +67,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+    return {
+      path: '/pages/roomjoin/roomjoin?room_num=' + this.data.room_num
+    }
   }
 })
