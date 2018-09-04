@@ -4,7 +4,8 @@
     "pages/roomcreate/roomcreate",
     "pages/roomjoin/roomjoin",
     "pages/room/room",
-    "pages/cardget/cardget"
+    "pages/cardget/cardget",
+    "pages/auth/auth"
   ],
   "window": {
     "backgroundTextStyle": "light",

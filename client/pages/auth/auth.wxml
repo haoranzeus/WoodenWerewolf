@@ -1,0 +1,2 @@
+<!--pages/auth/auth.wxml-->
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开始使用午休狼人杀 </button>

@@ -68,7 +68,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var currentPage = getCurrentPages();
+    console.log(currentPage);
     console.log(options.room_num);
+    // 判断是否拥有获取userInfo的授权，如果没有，跳到授权页
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.navigateTo({
+            url: '../auth/auth?back_url=' + '/pages/roomjoin/roomjoin&room_num=' + this.data.room_num
+          })
+        }
+      }
+    })
     this.setData({
       room_num: options.room_num
     })
